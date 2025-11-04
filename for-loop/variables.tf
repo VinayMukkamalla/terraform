@@ -14,11 +14,11 @@
 #   } 
 
 # for_each = var.instances ;   each.key --> instance1 ; each.value --> mongodb etc
-
+# for_each respects map or set([])
 
 
 variable "instances"{
-    default = ["mongodb","redis","mysql","rabbitmq"]
+  default = ["mongodb","redis","mysql","rabbitmq"]
 }
 
 variable "zone_id" {
