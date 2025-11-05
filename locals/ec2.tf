@@ -1,16 +1,13 @@
 resource "aws_instance" "terraform" {
-  ami           = "ami-09c813fb71547fc4f"
+  ami           = local.ami_id #data.aws_ami.aminame.id from data.tf also used in locals
   instance_type = local.instance_type
   vpc_security_group_ids = [aws_security_group.terraform_security_group.id]
 
-  tags = {
-    Name = "terraform"
-    Value = "True"
-  }
+  tags = local.ec2_tags
 }
 
 resource "aws_security_group" "terraform_security_group"{
-    name = "allow_all_traffic"  # security group name
+    name = "${local.common_name}-allow_all_traffic"  # security group name
     # description = ""
     # vpc_id = ""
 

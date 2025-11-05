@@ -8,6 +8,10 @@ variable "env"{
   default = "dev"
 }
 
+# variable "common_tags"{
+
+#   default = "${var.project}-${var.env}"
+# }
 
 variable "ami"{
 
@@ -20,13 +24,13 @@ variable "instance_type"{
 
 }
 
-variable "ec2_tags"{
+variable "common_tags"{
   type = map 
   default ={
-
-    Name = "terraform"
-    description = "using terraform variables"
-    Value = "True"
+    #Name = "terraform"
+    Terraform = "true"
+    project  = "roboshop"
+    env     = "dev"
 
   }
 }
